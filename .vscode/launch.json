@@ -1,0 +1,11 @@
+{
+	"configurations": [
+		{
+			"type": "java",
+			"name": "CodeLens (Launch) - PuzzlePegs",
+			"request": "launch",
+			"mainClass": "PuzzlePegs",
+			"args": "13 13"
+		}
+	]
+}
