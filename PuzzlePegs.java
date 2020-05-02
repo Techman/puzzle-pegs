@@ -133,7 +133,7 @@ public class PuzzlePegs
 		board[0] = ' '; // Null "space", this space is not used
 		for (int i = 1; i < 16; ++i)
 		{
-			if(startingHoleLocation == i)
+			if (startingHoleLocation == i)
 			{
 				board[i] = HOLE;
 			}
