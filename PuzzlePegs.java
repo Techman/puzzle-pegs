@@ -263,10 +263,10 @@ public class PuzzlePegs
 		}
 	}
 
-	/** Count occurances of a value within a range (inclusive)
+	/** Count occurences of a value within a range (inclusive)
 	 * @param array The array of values to check
 	 * @param value The value to check
-	 * @return The number of occurances that value appears
+	 * @return The number of occurences that value appears
 	 */
 	private static int count(char[] array, char value)
 	{

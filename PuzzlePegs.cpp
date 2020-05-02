@@ -92,10 +92,10 @@ static void showHelp();
  */
 static bool betweenInclusive(const int& lower, const int& upper, const int& number);
 
-/** Count occurances of a value within a range (inclusive)
+/** Count occurrences of a value within a range (inclusive)
  * @param array The array of values to check
  * @param value The value to check
- * @return The number of occurances that a value appears
+ * @return The number of occurrences that a value appears
  */
 template<typename T>
 static int count(const std::vector<T>& array, const T& value);

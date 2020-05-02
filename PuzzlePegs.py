@@ -132,7 +132,7 @@ def betweenInclusive(lower: int, upper: int, num: int):
 
 
 def count(array: list, value: str):
-    """Count occurances of a value within a range (inclusive)"""
+    """Count occurrences of a value within a range (inclusive)"""
     count = 0
     for char in array:
         if char == value:
