@@ -1,11 +1,31 @@
 {
 	"configurations": [
+	{
+		"name": "(gdb) Launch PuzzlePegs",
+		"type": "cppdbg",
+		"request": "launch",
+		"program": "${workspaceFolder}/PuzzlePegs",
+		"args": ["13", "13"],
+		"stopAtEntry": false,
+		"cwd": "${workspaceFolder}",
+		"environment": [],
+		"preLaunchTask": "C/C++: g++ build PuzzlePegs",
+		"externalConsole": false,
+		"MIMode": "gdb",
+		"setupCommands": [
+			{
+				"description": "Enable pretty-printing for gdb",
+				"text": "-enable-pretty-printing",
+				"ignoreFailures": true
+			}
+		]
+	},
 		{
 			"type": "java",
-			"name": "CodeLens (Launch) - PuzzlePegs",
+			"name": "(java) Launch PuzzlePegs",
 			"request": "launch",
 			"mainClass": "PuzzlePegs",
-			"args": "13 13"
+			"args": ["13", "13"]
 		}
 	]
 }
