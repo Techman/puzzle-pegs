@@ -1,2 +1,5 @@
 # Ignore Java compiler output
 *.class
+
+# Ignore C++ compiler output
+PuzzlePegs
