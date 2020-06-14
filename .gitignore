@@ -3,3 +3,8 @@
 
 # Ignore C++ compiler output
 PuzzlePegs
+
+# Ignore debug output
+*.exe
+*.ilk
+*.pdb
