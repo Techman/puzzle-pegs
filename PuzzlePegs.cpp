@@ -223,7 +223,6 @@ static int count(const std::vector<T>& array, const T& value)
 	return count;
 }
 
-// static std::string printBoard(const std::vector<char>& board)
 static void printBoard(const std::vector<char>& board)
 {
 	std::printf("    %c\n", board[1]);
