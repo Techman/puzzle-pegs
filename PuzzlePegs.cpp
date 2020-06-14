@@ -109,7 +109,7 @@ static int count(const std::vector<T>& array, const T& value);
  *   X X X X
  *  X X X X X
  */
-static std::string printBoard(const std::vector<char>& board);
+static void printBoard(const std::vector<char>& board);
 
 // Main
 int main(int argc, char* argv[])
@@ -181,14 +181,14 @@ int main(int argc, char* argv[])
 	if (solve(board, endingPegLocation))
 	{
 		std::cout << "Initial board\n";
-		std::cout << printBoard(original) << "\n";
+		printBoard(original);
 
 		// Print the moves and board to the output. The moves are in reverse
 		// order due to the recursion. The board states are not.
 		for (int i = jumps.size() - 1, j = 0; i > -1; --i, ++j)
 		{
 			std::cout << jumps[i] << "\n";
-			std::cout << printBoard(boards[j]) << "\n";
+			printBoard(boards[j]);
 		}
 	}
 	else
@@ -223,15 +223,14 @@ static int count(const std::vector<T>& array, const T& value)
 	return count;
 }
 
-static std::string printBoard(const std::vector<char>& board)
+// static std::string printBoard(const std::vector<char>& board)
+static void printBoard(const std::vector<char>& board)
 {
-	std::stringstream ss;
-	ss << "    " << board[1] <<  "\n";
-	ss << "   " << board[2] << " " << board[3] << "\n";
-	ss << "  " << board[4] << " " << board[5] << " " << board[6] << "\n";
-	ss << " " << board[7] << " " << board[8] << " " << board[9] << " " << board[10] << "\n";
-	ss << board[11] << " " << board[12] << " " << board[13] << " " << board[14] << " " << board[15];
-	return ss.str();
+	std::printf("    %c\n", board[1]);
+	std::printf("   %c %c\n", board[2], board[3]);
+	std::printf("  %c %c %c\n", board[4], board[5], board[6]);
+	std::printf(" %c %c %c %c\n", board[7], board[8], board[9], board[10]);
+	std::printf("%c %c %c %c %c\n", board[11], board[12], board[13], board[14], board[15]);
 }
 
 static void showHelp()
