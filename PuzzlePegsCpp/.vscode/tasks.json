@@ -1,0 +1,23 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "(Windows) clang++",
+            "type": "shell",
+            "command": ".\\build.ps1",
+            "problemMatcher": [
+                "$msCompile"
+            ]
+        },
+        {
+            "label": "(Linux) c++",
+            "type": "shell",
+            "command": "./build.sh",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}
