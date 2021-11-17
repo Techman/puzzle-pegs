@@ -1,6 +1,6 @@
 """
 Puzzle Pegs: Solves 15-peg triangular board game
-Copyright (C) 2020 Michael Hazell <michaelhazell@hotmail.com>
+Copyright (C) 2021 Michael Hazell <michaelhazell@hotmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -81,14 +81,15 @@ jumps = []
 
 
 def main():
+    """Main function to run the program"""
     # Pull from arguments and see if they are within spec
     begin = args.begin
     end = args.end
-    if not betweenInclusive(1, 15, begin):
+    if not between_inclusive(1, 15, begin):
         print('Valid range for location has to be 1 to 15, inclusive')
         exit(1)
 
-    if not betweenInclusive(1, 15, end):
+    if not between_inclusive(1, 15, end):
         print('Valid range for location has to be 1 to 15, inclusive')
         exit(1)
 
@@ -110,20 +111,20 @@ def main():
     if solve(board, end):
         # Print the initial board before the moves
         print('Initial board')
-        print(printBoard(original))
+        print(print_board(original))
 
         # Print the moves and board state to the output. The moves are in
         # reverse order due to recursion. The board states are not.
         j = 0
         for i in range(len(jumps) - 1, -1, -1):
             print(jumps[i])
-            print(printBoard(boards[j]))
+            print(print_board(boards[j]))
             j += 1
     else:
         print('No solution could be found for this combination')
 
 
-def betweenInclusive(lower: int, upper: int, num: int):
+def between_inclusive(lower: int, upper: int, num: int):
     """Check whether a number is in range (inclusive)"""
     if num >= lower and num <= upper:
         return True
@@ -131,7 +132,7 @@ def betweenInclusive(lower: int, upper: int, num: int):
         return False
 
 
-def count(array: list, value: str):
+def count_inclusive(array: list, value: str):
     """Count occurrences of a value within a range (inclusive)"""
     count = 0
     for char in array:
@@ -140,7 +141,7 @@ def count(array: list, value: str):
     return count
 
 
-def printBoard(board: list):
+def print_board(board: list):
     """Print the puzzle board"""
     string = ''
     string += '    ' + board[1] + '\n'
@@ -173,8 +174,7 @@ def solve(board: list, end: int):
             # was good. If it was false, we hit a dead end and we shouldn't
             # print the move
             if solve(board, end):
-                jumps.append(
-                    'Moved ' + str(move[0]) + ' to ' + str(move[2]) + ', jumping over ' + str(move[1]))
+                jumps.append('Moved ' + str(move[0]) + ' to ' + str(move[2]) + ', jumping over ' + str(move[1])) # pylint: disable=line-too-long
                 return True
 
             # If we end up here, undo the move and try the next one
@@ -188,15 +188,16 @@ def solve(board: list, end: int):
     # If no pattern is matched, see if there is only one puzzle peg
     # left and see if it is in the right spot.
     # Count of 'P' is 1 and the ending position was not specified
-    pegCount = count(board, PEG)
-    if pegCount == 1 and end == -1:
+    peg_count = count_inclusive(board, PEG)
+    if peg_count == 1 and end == -1:
         return True
     # Count of 'P' is 1 and the value at the ending position is 'P'
-    elif pegCount == 1 and board[end] == PEG:
+    elif peg_count == 1 and board[end] == PEG:
         return True
     # Count of 'P' was not 1 or the value at the ending position was not 'P'
     else:
         return False
+
 
 # Run main()
 if __name__ == "__main__":
