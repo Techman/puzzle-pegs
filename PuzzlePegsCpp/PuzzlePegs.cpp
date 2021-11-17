@@ -141,7 +141,7 @@ void PuzzlePegs::solve()
 bool PuzzlePegs::solve_internal(std::vector<char>& board, const int& end_pos)
 {
 	// For every move in the table of possible moves...
-	for (auto move : MOVES)
+	for (const auto& move : MOVES)
 	{
 		// See if we can match a PPH pattern. If we can, try following htis route by calling
 		// ourselves again with this modified board
