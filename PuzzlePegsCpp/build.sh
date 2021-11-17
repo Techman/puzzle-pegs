@@ -1,2 +1,2 @@
 # Compile and run
-c++ -g -o PuzzlePegs main.cpp PuzzlePegs.cpp
+c++ -std=c++20 -g -o PuzzlePegs main.cpp PuzzlePegs.cpp
