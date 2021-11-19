@@ -123,13 +123,13 @@ void PuzzlePegs::solve()
 		std::cout << "Initial board" << std::endl;
 		print_board(original);
 
-		// Print the moves and board to the output. The moves are in reverse order due to the
-		// recursion. The board states are not
-		// NOTE: i must be >= 0 instead of > -1 as size_t is unsigned
-		for (std::size_t i = jumps.size() - 1, j = 0; i >= 0; --i, ++j)
+		// Print the moves and board to the output. The moves (jumps) are in reverse order due to the
+		// recursion. The board states are not.
+		std::reverse(jumps.begin(), jumps.end());
+		for (std::size_t i = 0; i < boards.size(); ++i)
 		{
 			std::cout << jumps[i] << std::endl;
-			print_board(boards[j]);
+			print_board(boards[i]);
 		}
 	}
 	else
