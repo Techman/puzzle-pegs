@@ -1,6 +1,2 @@
 # Ignore C++ output
-*.out
-PuzzlePegs
-*.exe
-*.ilk
-*.pdb
+build/

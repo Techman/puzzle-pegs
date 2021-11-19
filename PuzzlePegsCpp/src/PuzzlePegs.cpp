@@ -22,7 +22,7 @@
 #include <sstream>
 
 template<typename T>
-bool PuzzlePegs::check_between_inclusive(const T &lower, const T &upper, const T &value)
+bool PuzzlePegs::check_between_inclusive(const T& lower, const T& upper, const T& value)
 {
 	if ((value >= lower) && (value <= upper))
 	{
@@ -36,7 +36,7 @@ bool PuzzlePegs::check_between_inclusive(const T &lower, const T &upper, const T
 }
 
 template<typename T>
-int PuzzlePegs::count(const std::vector<T> &vector, const T &value)
+int PuzzlePegs::count(const std::vector<T>& vector, const T& value)
 {
 	int count = 0;
 	for (const T& item : vector)
