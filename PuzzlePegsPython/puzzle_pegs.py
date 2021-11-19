@@ -92,14 +92,6 @@ class PuzzlePegs:
         else:
             return False
 
-    def _count(self, vector: list[str], value: int) -> int:
-        """Count occurances of a value within a range, inclusive"""
-        count: int = 0
-        for item in vector:
-            if item == value:
-                count += 1
-        return count
-
     def _print_board(self, board: list[str]) -> None:
         """Print the game board in ASCII form"""
         string = ''
@@ -146,7 +138,7 @@ class PuzzlePegs:
         # If no pattern is matched, see if there is only one peg left and see if it is in the
         # right spot
         # Situation 1: count of PEG is 1 and the ending position was not specified
-        peg_count: int = self._count(board, self._PEG)
+        peg_count: int = board.count(self._PEG)
         if peg_count == 1 and end_pos == -1:
             return True
         # Count of 'P' is 1 and the value at the ending position is 'P'
