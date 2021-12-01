@@ -1,0 +1,6 @@
+{
+    // Allow breakpoints on all editors - this is needed because we are using the C/C++ extension
+    // for debugging on Windows, and the C/C++ extension does not support Rust files.
+    // Compiled debug output is basically the same as a MSVC C++ project, so it works!
+    "debug.allowBreakpointsEverywhere": true
+}

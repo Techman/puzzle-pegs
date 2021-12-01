@@ -1,0 +1,43 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "type": "cargo",
+            "subcommand": "build",
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "label": "Rust: cargo build - PuzzlePegsRust"
+        },
+        {
+            "type": "cargo",
+            "subcommand": "run",
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "label": "Rust: cargo run - PuzzlePegsRust"
+        },
+        {
+            "type": "cargo",
+            "subcommand": "check",
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": "build",
+            "label": "Rust: cargo check - PuzzlePegsRust"
+        },
+        {
+            "type": "cargo",
+            "subcommand": "clean",
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": "clean",
+            "label": "Rust: cargo clean - PuzzlePegsRust"
+        }
+    ]
+}
