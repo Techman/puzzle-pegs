@@ -17,7 +17,10 @@
 // Rust style guide:
 // https://doc.rust-lang.org/1.0.0/style/README.html
 
+mod puzzle_pegs;
+use puzzle_pegs::PuzzlePegs;
 
 fn main() {
-
+    let mut puzzle = PuzzlePegs::new(1, 2);
+    puzzle.solve();
 }
