@@ -171,8 +171,8 @@ impl PuzzlePegs {
     pub fn solve(&mut self) {
         // Build the board. Reserve 16 spaces.
         let mut board: Vec<char> = Vec::with_capacity(16);
-        board.push(' '); // board[0]
-        for i in 1..16 { // Note: The upper bound is exclusive
+        board.push(' '); // board[0] - "empty" spot so that peg holes line up with array indice
+        for i in 1..16 {
             if self.start_pos == i {
                 board.push(self.hole);
             } else {
