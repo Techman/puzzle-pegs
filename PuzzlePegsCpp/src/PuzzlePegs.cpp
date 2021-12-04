@@ -163,7 +163,7 @@ bool PuzzlePegs::solve_internal(std::vector<char>& board)
 				// Record the jump
 				std::stringstream ss;
 				ss << "Moved " << move[0] << " to " << move[2] << ", jumping over " << move[1];
-				jumps.emplace_back(ss.str());
+				jumps.emplace_back(std::move(ss.str()));
 				return true;
 			}
 
