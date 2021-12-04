@@ -129,8 +129,7 @@ class PuzzlePegs:
                     return True
 
                 # If we end up here, undo the move and try the next one
-                if clone in self._boards:
-                    self._boards.remove(clone)
+                self._boards.pop()
                 board[move[0]] = self._PEG
                 board[move[1]] = self._PEG
                 board[move[2]] = self._HOLE
