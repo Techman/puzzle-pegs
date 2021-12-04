@@ -104,7 +104,7 @@ class PuzzlePegs:
             board[13] + ' ' + board[14] + ' ' + board[15]
         print(string)
 
-    def _solve(self, board: list[str], end_pos: int) -> bool:
+    def _solve(self, board: list[str]) -> bool:
         """Internal recursive function for solving, making use of backtracking"""
         # For every move in the table of possible moves...
         for move in self._MOVES:
@@ -122,7 +122,7 @@ class PuzzlePegs:
 
                 # Call ourselves recursively. If we return true then the conclusion was good. If it
                 # was false, we hit a dead end and we should not print the move
-                if self._solve(board, end_pos):
+                if self._solve(board):
                     # Record the jump
                     self._jumps.append(
                         f'Moved {move[0]} to {move[2]}, jumping over {move[1]}')
@@ -138,10 +138,10 @@ class PuzzlePegs:
         # right spot
         # Situation 1: count of PEG is 1 and the ending position was not specified
         peg_count: int = board.count(self._PEG)
-        if peg_count == 1 and end_pos == -1:
+        if peg_count == 1 and self._end_pos == -1:
             return True
         # Count of 'P' is 1 and the value at the ending position is 'P'
-        elif peg_count == 1 and board[end_pos] == self._PEG:
+        elif peg_count == 1 and board[self._end_pos] == self._PEG:
             return True
         # Count of 'P' was not 1 or the value at the ending position was not 'P'
         else:
@@ -182,7 +182,7 @@ class PuzzlePegs:
         original = deepcopy(board)
 
         # Now, solve the puzzle!
-        if self._solve(board, self._end_pos):
+        if self._solve(board):
             print('Initial board')
             self._print_board(original)
 
