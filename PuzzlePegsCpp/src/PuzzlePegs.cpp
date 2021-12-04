@@ -168,11 +168,7 @@ bool PuzzlePegs::solve_internal(std::vector<char>& board)
 			}
 
 			// If we end up here, undo the move and try the next one
-			auto result = std::find(boards.begin(), boards.end(), clone);
-			if (result != boards.end())
-			{
-				boards.erase(result);
-			}
+			boards.pop_back();
 			board[move[0]] = PEG;
 			board[move[1]] = PEG;
 			board[move[2]] = HOLE;
