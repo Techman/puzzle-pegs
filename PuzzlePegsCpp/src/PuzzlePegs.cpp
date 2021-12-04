@@ -118,7 +118,7 @@ void PuzzlePegs::solve()
 	auto original = board;
 
 	// Now, solve the puzzle!
-	if (solve_internal(board, end_pos))
+	if (solve_internal(board))
 	{
 		std::cout << "Initial board" << std::endl;
 		print_board(original);
@@ -138,7 +138,7 @@ void PuzzlePegs::solve()
 	}
 }
 
-bool PuzzlePegs::solve_internal(std::vector<char>& board, const int& end_pos)
+bool PuzzlePegs::solve_internal(std::vector<char>& board)
 {
 	// For every move in the table of possible moves...
 	for (const auto& move : MOVES)
@@ -158,7 +158,7 @@ bool PuzzlePegs::solve_internal(std::vector<char>& board, const int& end_pos)
 
 			// Call ourselves recurisvely. If we return true then the conclusion was good. If it was
 			// false, we hit a dead end and we shouldn't print the move
-			if (solve_internal(board, end_pos))
+			if (solve_internal(board))
 			{
 				// Record the jump
 				std::stringstream ss;

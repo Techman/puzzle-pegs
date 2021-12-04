@@ -110,9 +110,8 @@ private:
 	/**
 	 * @brief Internal recursive function for solving, making use of backtracking
 	 * @param board The game board
-	 * @param end_pos The ending peg location
 	 */
-	bool solve_internal(std::vector<char>& board, const int& end_pos);
+	bool solve_internal(std::vector<char>& board);
 
 public:
 	/**
