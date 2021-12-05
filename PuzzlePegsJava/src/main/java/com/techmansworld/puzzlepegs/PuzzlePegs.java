@@ -146,7 +146,7 @@ public class PuzzlePegs {
     /**
      * Solve the puzzle
      */
-    public void solve() {
+    public boolean solve() {
         // Build the board. Reserve 16 spaces.
         char[] board = new char[16];
         board[0] = ' '; // Null "space", this space is not used
@@ -173,8 +173,10 @@ public class PuzzlePegs {
                 System.out.println(jumps.get(i));
                 printBoard(boards.get(i));
             }
+            return true;
         } else {
             System.out.println("No solution could be found for this combination");
+            return false;
         }
     }
 
