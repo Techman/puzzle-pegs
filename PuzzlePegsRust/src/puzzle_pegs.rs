@@ -83,19 +83,19 @@ impl PuzzlePegs {
                 [14, 13, 12],
                 [14, 9, 5],
                 [15, 10, 6],
-                [15, 14, 13]
+                [15, 14, 13],
             ],
             boards: Vec::new(),
             end_pos,
             jumps: Vec::new(),
-            start_pos
+            start_pos,
         }
     }
 
     /// Count occurances of a character within range, inclusive
     /// vector: Vector of characters
     /// value: a chracter
-    fn count(vector: &Vec<char>, value: &char) -> usize {
+    fn count(vector: &[char], value: &char) -> usize {
         let mut count: usize = 0;
         for &i in vector {
             if i == *value {
@@ -107,12 +107,15 @@ impl PuzzlePegs {
 
     /// Print the game board in ASCII form
     /// board: The game board
-    fn print_board(board: &Vec<char>) {
+    fn print_board(board: &[char]) {
         println!("    {}", board[1]);
         println!("   {} {}", board[2], board[3]);
         println!("  {} {} {}", board[4], board[5], board[6]);
         println!(" {} {} {} {}", board[7], board[8], board[9], board[10]);
-        println!("{} {} {} {} {}", board[11], board[12], board[13], board[14], board[15]);
+        println!(
+            "{} {} {} {} {}",
+            board[11], board[12], board[13], board[14], board[15]
+        );
     }
 
     /// Internal recursive function for solving, making use of backtracking
@@ -123,8 +126,10 @@ impl PuzzlePegs {
         for a_move in self.moves {
             // See if we can match a PPH pattern. If we can, try following this route by calling
             // ourselves again with this modified board
-            if (board[a_move[0] as usize] == self.peg) && (board[a_move[1] as usize] == self.peg)
-                && (board[a_move[2] as usize] == self.hole) {
+            if (board[a_move[0] as usize] == self.peg)
+                && (board[a_move[1] as usize] == self.peg)
+                && (board[a_move[2] as usize] == self.hole)
+            {
                 // Apply the move
                 board[a_move[0] as usize] = self.hole;
                 board[a_move[1] as usize] = self.hole;
@@ -137,8 +142,10 @@ impl PuzzlePegs {
                 // Call ourselves recursively. If we return true then the conclusion was good.
                 // If it was false, we hit a dead end and we shouldn't print the move
                 if self.solve_internal(board) {
-                    self.jumps.push(format!("Moved {} to {}, jumping over {}",
-                        a_move[0], a_move[2], a_move[1]));
+                    self.jumps.push(format!(
+                        "Moved {} to {}, jumping over {}",
+                        a_move[0], a_move[2], a_move[1]
+                    ));
                     return true;
                 }
 

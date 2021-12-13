@@ -18,8 +18,8 @@
 // https://doc.rust-lang.org/1.0.0/style/README.html
 
 mod puzzle_pegs;
+use clap::{App, Arg};
 use puzzle_pegs::PuzzlePegs;
-use clap::{Arg, App};
 use regex::Regex;
 
 fn main() {
@@ -33,26 +33,34 @@ fn main() {
     let matches = App::new("Puzzle Pegs")
         .author("Michael Hazell <michaelhazell@hotmail.com>")
         .about("A program that solves the 15-hole peg game (triangular board)")
-        .arg(Arg::new("start_pos")
-            .short('s')
-            .long("start_pos")
-            .value_name("start_pos")
-            .about("The location of the starting hole in the board, e.g. 13")
-            .takes_value(true)
-            .required(true)
-            .multiple_occurrences(false)
-            .validator_regex(&start_pos_regex,
-                "Starting hole must range from 1 to 15 (inclusive)"))
-        .arg(Arg::new("end_pos")
-            .short('e')
-            .long("end_pos")
-            .value_name("end_pos")
-            .about("The location of the last peg, e.g. 13")
-            .takes_value(true)
-            .required(true)
-            .multiple_occurrences(false)
-            .validator_regex(&end_pos_regex,
-                "Ending peg must range from 1 to 15 (inclusive) or -1 for any location"))
+        .arg(
+            Arg::new("start_pos")
+                .short('s')
+                .long("start_pos")
+                .value_name("start_pos")
+                .about("The location of the starting hole in the board, e.g. 13")
+                .takes_value(true)
+                .required(true)
+                .multiple_occurrences(false)
+                .validator_regex(
+                    &start_pos_regex,
+                    "Starting hole must range from 1 to 15 (inclusive)",
+                ),
+        )
+        .arg(
+            Arg::new("end_pos")
+                .short('e')
+                .long("end_pos")
+                .value_name("end_pos")
+                .about("The location of the last peg, e.g. 13")
+                .takes_value(true)
+                .required(true)
+                .multiple_occurrences(false)
+                .validator_regex(
+                    &end_pos_regex,
+                    "Ending peg must range from 1 to 15 (inclusive) or -1 for any location",
+                ),
+        )
         .get_matches();
 
     // Extract start_pos and end_pos from args
