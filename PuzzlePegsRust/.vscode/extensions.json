@@ -1,8 +1,0 @@
-{
-    "recommendations": [
-        "rust-lang.rust",
-        "bungcip.better-toml",
-        "editorconfig.editorconfig",
-        "ms-vscode.cpptools"
-    ]
-}

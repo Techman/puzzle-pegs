@@ -1,6 +1,0 @@
-# Ignore settings, since the Python extension forces you to set an interpreter instead of picking
-# the only one installed...
-.vscode/settings.json
-
-# Ignore Python-related output
-__pycache__
