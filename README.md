@@ -7,6 +7,8 @@ This program has been implemented in various languages:
 - [C++](https://github.com/Techman/puzzle-pegs-cpp)
 - [Python](https://github.com/Techman/puzzle-pegs-py)
 - [Rust](https://github.com/Techman/puzzle-pegs-rs)
+- [C#](https://github.com/Techman/puzzle-pegs-cs)
+- [TypeScript](https://github.com/Techman/puzzle-pegs-ts)
 
 ## How It Works
 
